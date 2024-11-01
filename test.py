@@ -11,6 +11,6 @@ def wetter_vorhersage():
         "Es regnet so stark, dass sogar die Enten einen Regenschirm brauchen.",
         "Das Wetter ist so schlecht, dass die Sonne Urlaub genommen hat."
     ]
-    print("Wettervorhersage:", random.choice(wetter_sprüche))
+    print("Wettervorhersageeeeeee:", random.choice(wetter_sprüche))
 
 wetter_vorhersage()
