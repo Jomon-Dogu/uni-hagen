@@ -1,50 +1,68 @@
-    public class Konto {
+public class Konto {
+    long kontostand = 0;
+    long nummer;
+    Kunde inhaber;
+    Bank bankdaten;
 
 
-        // Klassenattribute
-        Bank bank;
-        Kunde inhaber;
-        long kontostand;
-        long nummer;
+    // Konstruktor
 
-        // Konstruktor
-        public Konto(long kontoNr, Bank b, Kunde k) {
-            nummer = kontoNr;
-            bank = b;
-            inhaber = k;
+    public Konto(long ktoNr, Bank b, Kunde k){
+        nummer = ktoNr;
+        bankdaten = b;
+        inhaber = k;
         }
 
-        // Methoden
-        void auszahlen(long cent){
-            Konto.this.kontostand = kontostand - cent;      // Konto.this kann weg weil kein Nameskonflikt!
 
-        }
+    //Methoden
 
-        void einzahlen(long cent){
-            Konto.this.kontostand = kontostand + cent;      // Konto.this kann weg weil kein Nameskonflikt!
-        }
-        
-        // Getter
-        String liefereInhabername() {
+    void auszahlen (long cent){
+        kontostand -= cent;
 
-                return inhaber.liefereName();
-        }
-        
-        String liefereBankname() {
-            
-                return bank.liefereName();
-        }
-
-        long liefereBLZ(){
-
-                return bank.liefereBLZ();
-        }
-        
-        long liefereKontonummer(){
-            return Konto.this.nummer;      // Konto.this kann weg weil kein Nameskonflikt!
-        }
-
-        long liefereKontostand(){
-            return Konto.this.kontostand;      // Konto.this kann weg weil kein Nameskonflikt!
-        }
     }
+
+    void einzahlen (long cent){
+
+        kontostand += cent;
+    }
+
+    //Getter
+    String liefereInhabername(){
+        return inhaber.liefereName();
+    }
+
+    long liefereBLZ(){
+        return bankdaten.liefereBLZ();
+    }
+
+    String liefereBankname(){
+        return bankdaten.liefereName();
+    }
+
+    long liefereKontonummer(){
+        return nummer;
+    }
+
+    long liefereKontostand(){
+
+        return kontostand;
+    }
+
+    public static void main(String[] args){
+        Bank bank_bsp = new Bank("CityBank", 2005300);
+        Kunde kunde_bsp = new Kunde("Horst Egon");
+        Konto konto_bsp = new Konto(7331482, bank_bsp,kunde_bsp);
+
+        long kontostand_neu = konto_bsp.liefereKontostand();
+
+        System.out.println(kontostand_neu);
+
+        konto_bsp.einzahlen(10);
+
+        System.out.println(konto_bsp.liefereKontostand());
+
+
+    }
+
+
+}
