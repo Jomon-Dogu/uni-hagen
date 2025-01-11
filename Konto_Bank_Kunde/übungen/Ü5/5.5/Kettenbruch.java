@@ -59,7 +59,32 @@ public class Kettenbruch {
         return wurzel_2_approx;
     }
 
+    public static double approximiereE(int n) {
+		int[] eFolge = berechneEFolge(n);
+		return new Kettenbruch(eFolge).werteIterativAus();
+	}
 
+    public static int[] berechneEFolge(int n) {
+		if (n <= 0) {
+			return new int[0];
+		}
+		int[] folge = new int[n];
+		// erstes Element ist 2
+		folge[0] = 2;
+		// die folgenden Elemente besitzen das folgende Schema: 1, (2 * (i / 3 + 1)), 1
+		// wobei die beiden 1 an den Positionen 3*n + 1 und 3*n auftreten
+		for (int i = 1; i < n; i++) {
+			switch(i % 3) {
+			case 0:
+			case 1:
+				folge[i] = 1;
+				break;
+			case 2:
+				folge[i] = 2 * (i / 3 + 1); 
+			}
+		}
+		return folge;
+	}
 
     
     
