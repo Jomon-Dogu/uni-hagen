@@ -1,6 +1,6 @@
-public interface Knoten{
+ interface Knoten{
 
-    int werteAus();
+    int werteAus() throws ArithmeticException;
     String toString();
 }
 

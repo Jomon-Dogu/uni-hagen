@@ -1,7 +1,7 @@
 public class SubKnoten extends BinaerOperatorKnoten{
 
     //Konstruktor
-    public SubKnoten(Knoten erster, Knoten zweiter){
+    public SubKnoten(Knoten erster, Knoten zweiter) throws IllegalArgumentException{
         super(erster, zweiter);
     }
 

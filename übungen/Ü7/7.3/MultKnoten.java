@@ -2,7 +2,7 @@ public class MultKnoten extends BinaerOperatorKnoten{
 
     //Konstruktor
 
-    public MultKnoten(Knoten erster, Knoten zweiter){
+    public MultKnoten(Knoten erster, Knoten zweiter)throws IllegalArgumentException{
 
         super(erster, zweiter);
     }

@@ -6,7 +6,11 @@ public abstract class BinaerOperatorKnoten implements Knoten{
     private Knoten zweiterOperand;
 
     //Konstruktor
-    public BinaerOperatorKnoten(Knoten erster, Knoten zweiter){
+    public BinaerOperatorKnoten(Knoten erster, Knoten zweiter) throws IllegalArgumentException{  // DER KONSTRUKTOR SOLL JA EINE AUSNAHME WERFEN
+
+        if (erster == null || zweiter == null){
+            throw new IllegalArgumentException("Operanden dürfen nicht Null sein");
+        }
 
         this.ersterOperand = erster;
         this.zweiterOperand = zweiter;

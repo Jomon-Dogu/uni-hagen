@@ -1,8 +1,9 @@
 public class AddKnoten extends BinaerOperatorKnoten {
     
     // Konstruktor
-    public AddKnoten(Knoten erster, Knoten zweiter) {
-        super(erster, zweiter);                             // WICHTIG
+    public AddKnoten(Knoten erster, Knoten zweiter) throws IllegalArgumentException {
+        super(erster, zweiter);                                                                      // WICHTIG
+
     }
 
     @Override
